@@ -122,17 +122,15 @@ export const ForgotPasswordController = async (req, res) => {
             })
         }
 
-        const existedUser = await User.findOne({ email }, {
-            password: password
-        })
+        const existedUser = await User.findOne({ email })
         if (!existedUser) {
             return res.status(400).json({
                 success: false,
                 message: `User does not exists with this ${email}`
             })
         }
-
-        existedUser.password = password
+        const hashedPassword = await bcryptjs.hash(password, 10)
+        existedUser.password = hashedPassword
         const updatedUser = await existedUser.save()
         const user = await User.findById(updatedUser._id)
         return res.status(200).json({
