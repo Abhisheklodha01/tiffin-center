@@ -9,21 +9,24 @@ const NavBar = () => {
     <div className="bg-gray-600 py-5 px-6 text-gray-100">
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-bold cursor-pointer">
-          Tifin-<span className="text-amber-500">Center</span>
+          <Link to={"/"}>Tifin-<span className="text-amber-500">Center</span></Link>
         </h1>
         <div className="hidden md:inline">
           <ul className="flex flex-row items-center justify-around gap-10">
             <li className="cursor-pointer text-lg hover:text-amber-600">
-              Food
+              <Link to={"/food"}>Food</Link>
             </li>
             <li className="cursor-pointer text-lg hover:text-amber-600">
-              Food Price
+            <Link to={"/foodprice"}>Food Price</Link>
             </li>
             <li className="cursor-pointer text-lg hover:text-amber-600">
-              Contect Us
+              <Link to={"/contect"}>Contect Us</Link>
             </li>
             <li className="cursor-pointer text-lg hover:text-amber-600">
-              Locate Us
+              <Link to={"/locate"}>Locate Us</Link>
+            </li>
+            <li className="cursor-pointer text-lg hover:text-amber-600">
+              <Link to={"/about"}>About Us</Link>
             </li>
           </ul>
         </div>
@@ -62,16 +65,29 @@ const NavBar = () => {
             >
               <div className="text-2xl text-center mb-5 font-bold">
               <li className="cursor-pointer ">
-                Food
+                <Link to={"/food"}
+                onClick={() => setNav(false)}
+                >Food</Link>
               </li>
               <li className="cursor-pointer mt-10 mb-10 ">
-                Food Price
+               <Link to={"/foodprice"}
+               onClick={() => setNav(false)}
+               >Food Price</Link>
               </li>
               <li className="cursor-pointer mt-10 mb-10">
-                Contect Us
+                <Link to={"/contect"}
+                onClick={() => setNav(false)}
+                >Contect Us</Link>
+              </li>
+              <li className="cursor-pointer mt-10 mb-10 ">
+               <Link to={"/locate"}
+               onClick={() => setNav(false)}
+               >Locate Us</Link>
               </li>
               <li className="cursor-pointer ">
-                Locate Us
+               <Link to={"/about"}
+               onClick={() => setNav(false)}
+               >About Us</Link>
               </li>
               </div>
               <li className="x-4 cursor-pointer capitalize py-6 text-4xl">

@@ -5,10 +5,15 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import ForgotPassword from './pages/ForgotPassword'
+import ForgotPassword from "./pages/ForgotPassword";
 import axios from "axios";
 import { Context } from "./main";
 import { server } from "./utils/constants";
+import Food from "./components/Food";
+import FoodPrice from "./components/FoodPrice";
+import ContectUs from "./components/ContectUs";
+import LocateUs from "./components/LocateUs";
+import AboutUs from "./components/AboutUs";
 
 function App() {
   const { isAuthenticated, setUser } = useContext(Context);
@@ -48,6 +53,11 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
+          <Route path="/food" element={<Food />} />
+          <Route path="/foodprice" element={<FoodPrice />} />
+          <Route path="/contect" element={<ContectUs />} />
+          <Route path="/locate" element={<LocateUs />} />
+          <Route path="/about" element={<AboutUs />} />
         </Routes>
         <Footer />
       </BrowserRouter>

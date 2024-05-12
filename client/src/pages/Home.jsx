@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <main
       className="
-      min-h-screen bg-white text-white"
+      h-full bg-white text-white pb-10"
     >
       <div className="flex flex-col md:flex-row  mt-10">
       <h1
