@@ -1,15 +1,25 @@
-import React from 'react'
+import React from "react";
+import HomeImage from "../assets/HomeImage.jpg";
+import Home1 from '../assets/Home1.jpg'
 
 const Home = () => {
   return (
-    <div 
-     className='flex items-center justify-center min-h-screen bg-gray-900 text-white'
+    <main
+      className="
+      min-h-screen bg-white text-white"
     >
-    <div className='flex justify-center items-center'>
-    <h1 className='text-3xl font-bold text-center'>Welcome to Tifin Center</h1>
-    </div>
-    </div>
-  )
-}
+      <div className="flex flex-col md:flex-row  mt-10">
+      <h1
+        className="text-2xl md:text-3xl text-amber-500 font-bold
+       text-center mb-8 md:hidden"
+      >
+        Welcome to Tifin Center services
+      </h1>
+      <img className="md:h-[550px] md:w-[1000px]" src={HomeImage} alt="Banner1" />
+      <img className="md:h-[550px]" src={Home1} alt="Banner2" />
+      </div>
+    </main>
+  );
+};
 
-export default Home
+export default Home;
