@@ -1,12 +1,13 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { server } from "../utils/constants.js";
 import { Context } from "../main.jsx";
 
 const Register = () => {
-  const { setIsAuthenticated } = useContext(Context);
+  const navigate = useNavigate()
+  const { setIsAuthenticated, isAuthenticated } = useContext(Context);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -34,13 +35,18 @@ const Register = () => {
       });
       localStorage.setItem("token", data.token);
       setIsAuthenticated(true);
+      navigate("/food")
     } catch (error) {
-      toast.error(error.response.message, {
+      toast.error(error.response.data.message, {
         position: "top-center",
       });
       setIsAuthenticated(false);
     }
   };
+
+  if (isAuthenticated === true) {
+     navigate("/food")
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-800 text-gray-100">
