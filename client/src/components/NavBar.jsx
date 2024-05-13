@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Context } from "../main";
+import LogoImage from "../assets/Logo.jpg";
 
 const NavBar = () => {
   const [nav, setNav] = useState(false);
@@ -14,13 +15,13 @@ const NavBar = () => {
   };
 
   return (
-    <div className="bg-gray-600 py-5 px-5 text-gray-100">
+    <div className="bg-gray-600 p-3 text-gray-100">
       <div className="flex items-center justify-between">
         <Link to={"/"} className="text-xl font-bold cursor-pointer">
-          Tifin-<span className="text-amber-500">Center</span>
+          <img src={LogoImage} alt="Logo" className="h-16 w-16 rounded-full" />
         </Link>
         <div className="hidden md:inline">
-          <ul className="flex flex-row items-center justify-around gap-10">
+          <ul className="flex flex-row items-center justify-around gap-10 mr-[-20px]">
             <li className="cursor-pointer text-lg hover:text-amber-600">
               <Link to={"/food"}>Food</Link>
             </li>
@@ -76,12 +77,42 @@ const NavBar = () => {
             </ul>
           )}
         </div>
+        <Link
+          to={"/food"}
+          className="text-xl  ml-8
+          md:hidden py-[5px] px-4 border-2 border-gray-400 rounded-lg"
+        >
+          Food
+        </Link>
 
+        <div className="md:hidden">
+          {isAuthenticated ? (
+            <Link
+              to={"/userprofile"}
+              className="py-2 px-4 
+              border-2 border-gray-400 rounded-lg text-gray-100"
+            >
+              My Profile
+            </Link>
+          ) : (
+            <Link
+              to={"/login"}
+              className="py-2 px-4 
+              border-2 border-gray-400 rounded-lg text-gray-100"
+            >
+              Login
+            </Link>
+          )}
+        </div>
         <div
           onClick={() => setNav(!nav)}
           className="md:hidden cursor-pointer pr-4 mt-4 z-20 "
         >
-          {nav ? <FaTimes size={30} className="mr-24" /> : <FaBars size={30} />}
+          {nav ? (
+            <FaTimes size={30} className="mr-40" />
+          ) : (
+            <FaBars size={30} className="mb-4" />
+          )}
         </div>
 
         {nav ? (
@@ -119,16 +150,6 @@ const NavBar = () => {
                     </Link>
                   </li>
                 </div>
-                <li className="x-4 cursor-pointer capitalize py-6 text-4xl">
-                  <Link
-                    className="py-3 px-4 border-1  rounded-lg
-                 bg-gradient-to-r from-cyan-600 to-blue-600 text-lg"
-                    to="/userprofile"
-                    onClick={() => setNav(false)}
-                  >
-                    My Profile
-                  </Link>
-                </li>
                 <li className="x-4 cursor-pointer capitalize py-6 text-4xl">
                   <Link
                     className="py-3 px-6 border-1  rounded-lg

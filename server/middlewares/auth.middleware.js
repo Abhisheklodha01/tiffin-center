@@ -3,9 +3,7 @@ import User from '../models/user.model.js';
 
 
 export const isAuthenticated = async (req, res, next) => {
-
-    const token = req.cookies?.token ||
-    req.header("authorization")?.replace("Bearer ", "")
+    const token = req.header("authorization")?.replace("Bearer ", "")
     try {
         if (!token) {
             return res.status(401).json({
@@ -13,7 +11,14 @@ export const isAuthenticated = async (req, res, next) => {
                 message:  "Unauthorized request"
             })
         }
+
         const decodedToken = jwt.verify(token, process.env.JWT_KEY)
+        if (!decodedToken) {
+            return res.status(401).json({
+                success: false,
+                message:  "Invalid Token"
+            })
+        }
         const user = await User.findById(decodedToken._id).select("-password")
     
         if (!user) {
@@ -26,7 +31,6 @@ export const isAuthenticated = async (req, res, next) => {
         req.user = user
         next()
     } catch (error) {
-        console.log(error);
         return res.status(500).json({
             success: false,
             message: "Internal server error"
