@@ -9,43 +9,43 @@ const FoodPrice = () => {
     {
       id: 1,
       name: "Special Thali",
-      price : "Rs: 150",
+      price : "Rs: 100",
       src: SpecialthaliImage
     },
     
     {
       id: 2,
-      name : "Noraml Thali",
+      name : "Normal Thali",
       price: "Rs: 80",
       src : NormalthaliImage
     },
 
     {
       id: 3,
-      name: "Monthly Tifin",
+      name: "Monthly Tiffin",
       price: "Rs: 2500",
       src: TfinImage
 
     },
     {
       id: 4,
-      name: "Weekely Tifin",
+      name: "Weekely Tiffin",
       price: "Rs: 700",
       src: TfinImage
 
     },
     {
       id: 5,
-      name: "daily Tifin",
-      price: "Rs: 200",
+      name: "Daily Tiffin",
+      price: "Rs: 120",
       src: TfinImage
 
     },
 
     {
       id: 6,
-      name: "ont time Tifin",
-      price: "Rs: 100",
+      name: "one time Tiffin",
+      price: "Rs: 60",
       src: TfinImage
 
     },

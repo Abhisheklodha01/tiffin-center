@@ -80,7 +80,7 @@ const Register = () => {
             <div className="flex mt-2 ">
               <p>
                 Already have an account
-                <Link className="text-[#1640D6] ml-2" to="/login">
+                <Link className="text-lime-300 ml-2" to="/login">
                   {" "}
                   Login Here
                 </Link>

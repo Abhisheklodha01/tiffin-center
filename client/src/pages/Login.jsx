@@ -69,13 +69,13 @@ const Login = () => {
             <div className="flex mt-2 ">
               <p>
                 Don't have an account <br />
-                <Link className="text-[#1640D6]" to="/register">
+                <Link className=" text-lime-300" to="/register">
                   {" "}
                   Sign up
                 </Link>
               </p>
-              <Link to={"/forgotpassword"} className="ml-4 text-amber-600">
-                Fotgot password
+              <Link to={"/forgotpassword"} className="ml-4 text-pink-300">
+                Forgot password
               </Link>
             </div>
             <button
