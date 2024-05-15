@@ -14,9 +14,12 @@ import FoodPrice from "./components/FoodPrice";
 import ContectUs from "./components/ContectUs";
 import LocateUs from "./components/LocateUs";
 import AboutUs from "./components/AboutUs";
+import UserProfile from "./components/UserProfile";
+import AttendancePage from './components/AttendancePage'
 
 function App() {
-  const { isAuthenticated, setUser } = useContext(Context);
+  
+  const { isAuthenticated, setUser, setIsAuthenticated } = useContext(Context);
   const token = localStorage.getItem("token");
   useEffect(() => {
     const FetchUserDetails = async () => {
@@ -26,6 +29,8 @@ function App() {
         },
       });
       setUser(data.user);
+      setIsAuthenticated(true)
+      
     };
 
     FetchUserDetails();
@@ -58,6 +63,8 @@ function App() {
           <Route path="/contect" element={<ContectUs />} />
           <Route path="/locate" element={<LocateUs />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/userprofile" element={<UserProfile />} />
+          <Route path="/attendance" element={<AttendancePage />} />
         </Routes>
         <Footer />
       </BrowserRouter>
