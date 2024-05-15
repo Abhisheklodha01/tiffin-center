@@ -13,12 +13,12 @@ const LocateUs = () => {
         />
       </div>
 
-      <div class="  relative flex flex-col ml-5 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl md:w-1/2 mt-10 md:mt-0">
+      <div class=" mr-5 relative flex flex-col ml-5 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl md:w-1/2 mt-10 md:mt-0">
         <div >
           <h5 class="ml-5 md:text-3xl block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
             ADDRESS
           </h5>
-          <p class="ml-5 block font-sans text-base antialiased font-light leading-relaxed text-inherit">
+          <p class="ml-5  block font-sans text-base antialiased font-light leading-relaxed text-inherit">
           <span className=" font-semibold md:text-2xl">Ma Annapurna tiffin and mess</span> <br />
           <span className=" md:text-2xl">435 A Madhvi apartment F-1, near madarasa, Kalpana Nagar, Bhopal, Madhya Pradesh 462002</span>
           </p>
