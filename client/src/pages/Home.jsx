@@ -1,24 +1,70 @@
 import React from "react";
 import HomeImage from "../assets/HomeImage.jpg";
-import Home1 from '../assets/Home1.jpg'
+import Home1 from "../assets/Home1.jpg";
+import SliderImage1 from "../assets/SliderImage1.jpg";
 
 const Home = () => {
   return (
-    <main
-      className="
-      h-full bg-white text-white pb-10"
-    >
-      <div className="flex flex-col md:flex-row  mt-10">
-      <h1
-        className="text-2xl md:text-3xl text-amber-500 font-bold
-       text-center mb-8 md:hidden"
-      >
-        Welcome to Tifin Center services
-      </h1>
-      <img className="md:h-[550px] md:w-[1000px]" src={HomeImage} alt="Banner1" />
-      <img className="md:h-[550px]" src={Home1} alt="Banner2" />
+    <div className="">
+      <div className="carousel w-full h-1/2 ">
+        <div id="slide1" className="carousel-item relative w-full">
+          <img
+            src={SliderImage1}
+            className="w-full h-1/2"
+          />
+          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide4" className="btn btn-circle">
+              ❮
+            </a>
+            <a href="#slide2" className="btn btn-circle">
+              ❯
+            </a>
+          </div>
+        </div>
+        <div id="slide2" className="carousel-item relative w-full">
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg"
+            className="w-full"
+          />
+          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide1" className="btn btn-circle">
+              ❮
+            </a>
+            <a href="#slide3" className="btn btn-circle">
+              ❯
+            </a>
+          </div>
+        </div>
+        <div id="slide3" className="carousel-item relative w-full">
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg"
+            className="w-full"
+          />
+          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide2" className="btn btn-circle">
+              ❮
+            </a>
+            <a href="#slide4" className="btn btn-circle">
+              ❯
+            </a>
+          </div>
+        </div>
+        <div id="slide4" className="carousel-item relative w-full">
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg"
+            className="w-full"
+          />
+          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide3" className="btn btn-circle">
+              ❮
+            </a>
+            <a href="#slide1" className="btn btn-circle">
+              ❯
+            </a>
+          </div>
+        </div>
       </div>
-    </main>
+    </div>
   );
 };
 
