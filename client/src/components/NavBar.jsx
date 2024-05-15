@@ -6,32 +6,26 @@ const NavBar = () => {
   const [nav, setNav] = useState(false);
 
   return (
-    <div className="bg-amber-400 py-1 px-6 text-gray-100 sticky top-0 right-0 left-0 z-50">
+    <div className="bg-gray-600 py-5 px-6 text-gray-100">
       <div className="flex items-center justify-between">
-       <Link to={'/'}>
-        <h1 className="text-xl font-bold cursor-pointer flex justify-center items-center">
-           <img  className=" h-20 w-20 pt-3" src="Logo.png" alt="Logo" />
-           <span className="flex flex-col text-gray-800">
-             <p>ANNAPURNA</p>
-             <p>TIFFIN</p>
-           </span>
+        <h1 className="text-xl font-bold cursor-pointer">
+          <Link to={"/"}>Tifin-<span className="text-amber-500">Center</span></Link>
         </h1>
-       </Link>
         <div className="hidden md:inline">
           <ul className="flex flex-row items-center justify-around gap-10">
-            <li className="cursor-pointer text-lg text-gray-800">
+            <li className="cursor-pointer text-lg hover:text-amber-600">
               <Link to={"/food"}>Food</Link>
             </li>
-            <li className="cursor-pointer text-lg text-gray-800">
+            <li className="cursor-pointer text-lg hover:text-amber-600">
             <Link to={"/foodprice"}>Food Price</Link>
             </li>
-            <li className="cursor-pointer text-lg text-gray-800">
-              <Link to={"/contect"}>Contact Us</Link>
+            <li className="cursor-pointer text-lg hover:text-amber-600">
+              <Link to={"/contect"}>Contect Us</Link>
             </li>
-            <li className="cursor-pointer text-lg text-gray-800">
+            <li className="cursor-pointer text-lg hover:text-amber-600">
               <Link to={"/locate"}>Locate Us</Link>
             </li>
-            <li className="cursor-pointer text-lg text-gray-800">
+            <li className="cursor-pointer text-lg hover:text-amber-600">
               <Link to={"/about"}>About Us</Link>
             </li>
           </ul>
