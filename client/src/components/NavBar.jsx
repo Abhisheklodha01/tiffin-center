@@ -15,7 +15,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="bg-gray-600 p-3 text-gray-100">
+    <div className="bg-gray-600 p-3 text-gray-100 fixed top-0 left-0 right-0 z-20">
       <div className="flex items-center justify-between">
         <Link to={"/"} className="text-xl font-bold cursor-pointer">
           <img src={LogoImage} alt="Logo" className="h-16 w-16 rounded-full" />
@@ -29,7 +29,7 @@ const NavBar = () => {
               <Link to={"/foodprice"}>Food Price</Link>
             </li>
             <li className="cursor-pointer text-lg hover:text-amber-600">
-              <Link to={"/contect"}>Contect Us</Link>
+              <Link to={"/contect"}>Contact Us</Link>
             </li>
             <li className="cursor-pointer text-lg hover:text-amber-600">
               <Link to={"/locate"}>Locate Us</Link>
@@ -136,7 +136,7 @@ const NavBar = () => {
                   </li>
                   <li className="cursor-pointer mt-10 mb-10">
                     <Link to={"/contect"} onClick={() => setNav(false)}>
-                      Contect Us
+                      Contact Us
                     </Link>
                   </li>
                   <li className="cursor-pointer mt-10 mb-10 ">
