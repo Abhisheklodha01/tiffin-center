@@ -13,7 +13,7 @@ const Home = () => {
         className="text-2xl md:text-3xl text-amber-500 font-bold
        text-center mb-8 md:hidden"
       >
-        Welcome to Tifin Center services
+        Welcome to ANNAPURNA TIFFIN
       </h1>
       <img className="md:h-[550px] md:w-[1000px]" src={HomeImage} alt="Banner1" />
       <img className="md:h-[550px]" src={Home1} alt="Banner2" />
