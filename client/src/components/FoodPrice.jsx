@@ -56,7 +56,7 @@ const FoodPrice = () => {
   return (
     <div
       className="bg-gradient-to-b from-gray-900
-     to-gray-700 w-full text-white md:min-h-screen "
+     to-gray-700 w-full text-white md:h-full pt-20 "
     >
       <div
         className="max-w-screen-lg p-4 mx-auto

@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Context } from "../main";
-import LogoImage from "../assets/Logo.jpg";
+import LogoImage from "../assets/Logo.png";
 
 const NavBar = () => {
   const [nav, setNav] = useState(false);
@@ -15,26 +15,36 @@ const NavBar = () => {
   };
 
   return (
-    <div className="bg-gray-600 p-3 text-gray-100">
+    <div className="bg-amber-400 p-3 text-gray-100 fixed top-0 left-0 right-0 z-20">
       <div className="flex items-center justify-between">
         <Link to={"/"} className="text-xl font-bold cursor-pointer">
-          <img src={LogoImage} alt="Logo" className="h-16 w-16 rounded-full" />
+          <div className="flex justify-center items-center ">
+            <img
+              src={LogoImage}
+              alt="Logo"
+              className="h-16 w-16 rounded-full"
+            />
+            <h1 className=" hidden md:block">
+              ANNAPURNA <br /> MESS
+            </h1>
+            
+          </div>
         </Link>
         <div className="hidden md:inline">
           <ul className="flex flex-row items-center justify-around gap-10 mr-[-20px]">
-            <li className="cursor-pointer text-lg hover:text-amber-600">
+            <li className="cursor-pointer text-lg text-gray-600 hover:text-white">
               <Link to={"/food"}>Food</Link>
             </li>
-            <li className="cursor-pointer text-lg hover:text-amber-600">
+            <li className="cursor-pointer text-lg text-gray-600 hover:text-white">
               <Link to={"/foodprice"}>Food Price</Link>
             </li>
-            <li className="cursor-pointer text-lg hover:text-amber-600">
-              <Link to={"/contect"}>Contect Us</Link>
+            <li className="cursor-pointer text-lg text-gray-600 hover:text-white">
+              <Link to={"/contect"}>Contact Us</Link>
             </li>
-            <li className="cursor-pointer text-lg hover:text-amber-600">
+            <li className="cursor-pointer text-lg text-gray-600 hover:text-white">
               <Link to={"/locate"}>Locate Us</Link>
             </li>
-            <li className="cursor-pointer text-lg hover:text-amber-600">
+            <li className="cursor-pointer text-lg text-gray-600 hover:text-white">
               <Link to={"/about"}>About Us</Link>
             </li>
           </ul>
@@ -136,7 +146,7 @@ const NavBar = () => {
                   </li>
                   <li className="cursor-pointer mt-10 mb-10">
                     <Link to={"/contect"} onClick={() => setNav(false)}>
-                      Contect Us
+                      Contact Us
                     </Link>
                   </li>
                   <li className="cursor-pointer mt-10 mb-10 ">
