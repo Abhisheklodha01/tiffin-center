@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser'
 import { config } from 'dotenv'
 import connectDB from './db/index.js'
 import userRouter from './routes/user.route.js'
+import AttendanceRouter from './routes/attendance.route.js'
 
 config()
 
@@ -12,13 +13,13 @@ const app = express()
 app.use(cors({
     origin: process.env.FRONTEND_URL,
     credentials: true
-    
+
 }))
 
 app.use(express.json())
 app.use(cookieParser())
 
- 
+
 connectDB()
 
 app.get("/", (req, res) => {
@@ -26,5 +27,6 @@ app.get("/", (req, res) => {
 })
 
 app.use("/api/v1/users", userRouter)
+app.use("/api/v1", AttendanceRouter)
 
 export default app

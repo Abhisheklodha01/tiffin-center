@@ -1,4 +1,5 @@
 import Attendance from '../models/attendance.model.js'
+import moment from 'moment/moment.js'
 
 export const UpdateAttendanceController = async (req, res) => {
     const { status, userId } = req.body
@@ -12,30 +13,25 @@ export const UpdateAttendanceController = async (req, res) => {
 
         }
 
-        let today = new Date();
-        let dd = today.getDate();
-        let mm = today.getMonth() + 1;
+        const today = moment(new Date()).format('YYYY-MM-DD');
 
-        let yyyy = today.getFullYear();
-
-        if (dd < 10) {
-            dd = '0' + dd;
-        }
-        if (mm < 10) {
-            mm = '0' + mm;
-        }
-        today = dd + '/' + mm + '/' + yyyy;
-
-        const AttendanceMessage = Attendance.create({
+        const AttendanceMessage = await Attendance.create({
             userId,
             date: today,
             status
         })
-        
+        const date = AttendanceMessage.date.toLocaleDateString()
+        const AttendanceDetails = {
+            "date": date,
+            "status": AttendanceMessage.status,
+            userId
+        }
+
+
         res.status(200).json({
             success: true,
             message: "Attendance updated successfully",
-            AttendanceMessage
+            AttendanceDetails
         })
     } catch (error) {
         console.log(error);
@@ -56,11 +52,13 @@ export const UserAttendanceController = async (req, res) => {
                 message: "Please Login First"
             })
         }
-      
-        const UserAttendance = await Attendance.find({userId})
+
+        const UserAttendance = await Attendance.find({ userId })
+            .select("-_id -createdAt -updatedAt -__v -userId")
         return res.status(200).json({
             success: true,
             message: "Attendance fetched successfully",
+            userId,
             UserAttendance
         })
     } catch (error) {
@@ -71,25 +69,32 @@ export const UserAttendanceController = async (req, res) => {
 export const GetUsersAttendanceController = async (req, res) => {
     try {
         const AllIUsersAttendance = await Attendance.find()
+            .select("-_id -createdAt -updatedAt -__v")
         return res.status(200).json({
             AllIUsersAttendance
         })
     } catch (error) {
-     console.log(error);       
+        console.log(error);
     }
 }
 
 export const UpdateAttendanceStatus = async (req, res) => {
-       const {status, userId} = req.body 
-       try {
-        const updateStatus = await Attendance.findOne({userId})
+    const { status, userId } = req.body
+    try {
+        const updateStatus = await Attendance.findOne({ userId })
+        const date = updateStatus.date.toLocaleDateString()
         updateStatus.status = status
         const updatedStatus = await updateStatus.save()
+        const UpdatedAttendanceDetails = {
+            "date": date,
+            "status": updatedStatus.status,
+            userId
+        }
         return res.status(200).json({
             message: "Attendance Edited successfully",
-            updatedStatus
+            UpdatedAttendanceDetails
         })
-       } catch (error) {
+    } catch (error) {
         console.log(error);
-       }   
+    }
 }

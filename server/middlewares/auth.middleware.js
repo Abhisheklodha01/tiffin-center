@@ -3,7 +3,8 @@ import User from '../models/user.model.js';
 
 
 export const isAuthenticated = async (req, res, next) => {
-    const token = req.header("authorization")?.replace("Bearer ", "")
+    const token = req.cookies?.token ||
+     req.header("authorization")?.replace("Bearer ", "")
     try {
         if (!token) {
             return res.status(401).json({
