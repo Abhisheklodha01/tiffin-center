@@ -48,11 +48,12 @@ const Login = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-800 text-gray-100">
-      <div className="bg-gray-600 p-8 pt-8 mb-5
-       md:mb-10 md:p-16 md:pt-10 md:pb-12 rounded-lg">
+    <div className="min-h-screen flex items-center justify-center
+     bg-[#A87676] text-gray-50">
+      <div className="bg-[#735751] p-8 pt-8 mb-5
+       md:mb-10 md:p-16 md:pt-10 md:pb-12 rounded-lg md:mt-24 mt-16 mr-6 ml-5">
         <h1 className="text-2xl font-semibold text-center mb-8">
-          Welcome back to Tifin-Center
+          Welcome Back To ANNAPURNA MESS
         </h1>
         <form onSubmit={submitHandler}>
           <div className="flex flex-col  justify-between ">
@@ -60,7 +61,7 @@ const Login = () => {
             <input
               type="text"
               placeholder="enter your email"
-              className="outline-none rounded-md py-2 pl-4 bg-gray-500 mt-1 mb-5"
+              className="outline-none rounded-md py-2 pl-4 bg-[#a78a7f] mt-1 mb-5"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
@@ -68,7 +69,7 @@ const Login = () => {
             <input
               type="text"
               placeholder="Enter your password"
-              className="outline-none rounded-md py-2 pl-4 bg-gray-500 mt-1"
+              className="outline-none rounded-md py-2 pl-4 bg-[#a78a7f] mt-1"
               onChange={(e) => setPassword(e.target.value)}
               value={password}
             />
@@ -76,13 +77,13 @@ const Login = () => {
             <div className="flex mt-2 ">
               <p>
                 Don't have an account <br />
-                <Link className="text-[#1640D6]" to="/register">
+                <Link className="text-blue-400" to="/register">
                   {" "}
                   Sign up
                 </Link>
               </p>
-              <Link to={"/forgotpassword"} className="ml-4 text-amber-600">
-                Fotgot password
+              <Link to={"/forgotpassword"} className="ml-5 md:ml-28 text-gray-100">
+                Fotgot password?
               </Link>
             </div>
             <button

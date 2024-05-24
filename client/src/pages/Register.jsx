@@ -6,7 +6,7 @@ import { server } from "../utils/constants.js";
 import { Context } from "../main.jsx";
 
 const Register = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { setIsAuthenticated, isAuthenticated } = useContext(Context);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -35,7 +35,7 @@ const Register = () => {
       });
       localStorage.setItem("token", data.token);
       setIsAuthenticated(true);
-      navigate("/food")
+      navigate("/food");
     } catch (error) {
       toast.error(error.response.data.message, {
         position: "top-center",
@@ -45,14 +45,18 @@ const Register = () => {
   };
 
   if (isAuthenticated === true) {
-     navigate("/food")
+    navigate("/food");
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-800 text-gray-100">
-      <div className="bg-gray-600 p-8 pt-8 mb-5 md:mb-10 md:p-16 md:pt-8 md:pb-8 rounded-lg">
+    <div
+      className="min-h-screen flex items-center justify-center 
+      bg-[#A87676] text-gray-50"
+    >
+      <div className="bg-[#735751] p-8 pt-8 mb-5 md:mb-10 md:p-16
+       md:pt-8 md:pb-8 rounded-lg mt-14 md:mt-28 mr-6 ml-5">
         <h1 className="text-2xl font-semibold text-center mb-4">
-          Welcome to Tifin-Center
+          Welcome to ANNAPURNA MESS
         </h1>
         <form onSubmit={submitHandler}>
           <div className="flex flex-col  justify-between ">
@@ -62,7 +66,7 @@ const Register = () => {
             <input
               type="text"
               placeholder="enter your fullname"
-              className="outline-none rounded-md py-2 pl-4 bg-gray-500 mt-1 mb-5"
+              className="outline-none rounded-md py-2 pl-4 bg-[#a78a7f] mt-1 mb-5"
               onChange={(e) => setFullName(e.target.value)}
               value={fullName}
             />
@@ -70,7 +74,7 @@ const Register = () => {
             <input
               type="text"
               placeholder="enter your email"
-              className="outline-none rounded-md py-2 pl-4 bg-gray-500 mt-1 mb-5"
+              className="outline-none rounded-md py-2 pl-4 bg-[#a78a7f] mt-1 mb-5"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
@@ -78,15 +82,15 @@ const Register = () => {
             <input
               type="text"
               placeholder="Enter your password"
-              className="outline-none rounded-md py-2 pl-4 bg-gray-500 mt-1"
+              className="outline-none rounded-md py-2 pl-4 bg-[#a78a7f] mt-1"
               onChange={(e) => setPassword(e.target.value)}
               value={password}
             />
 
             <div className="flex mt-2 ">
               <p>
-                Already have an account
-                <Link className="text-[#1640D6] ml-2" to="/login">
+                Already have an account?
+                <Link className="text-blue-400 ml-2" to="/login">
                   {" "}
                   Login Here
                 </Link>
