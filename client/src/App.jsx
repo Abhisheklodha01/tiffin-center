@@ -16,6 +16,7 @@ import LocateUs from "./components/LocateUs";
 import AboutUs from "./components/AboutUs";
 import UserProfile from "./components/UserProfile";
 import AttendancePage from './components/AttendancePage'
+import UploadAttendance from "./components/UploadAttendance";
 
 function App() {
   
@@ -65,6 +66,7 @@ function App() {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/attendance" element={<AttendancePage />} />
+          <Route path="uploadattendance" element={<UploadAttendance />} />
         </Routes>
         <Footer />
       </BrowserRouter>
