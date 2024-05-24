@@ -149,3 +149,27 @@ export const ForgotPasswordController = async (req, res) => {
 }
 
 
+export const GetUsersController = async (req, res) => {
+      try {
+        const users = await User.find().select("-password -createdAt -updatedAt -__v")
+        if (!users) {
+            return res.status(500).json({
+                success: false,
+                message: "Unable to find users"
+            })
+        }
+      
+        return res.status(200).json({
+            success: true,
+            message: "Users found successfully",
+            users
+        })
+
+      } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            success: false,
+            message: "internal server error"
+        })
+      }
+}
